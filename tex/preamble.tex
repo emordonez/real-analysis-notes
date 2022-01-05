@@ -1,0 +1,178 @@
+% MATH PACKAGES
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{faktor}
+\usepackage{nicefrac}
+
+% Blackboard bold shortcuts
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+% Changes to default symbols and letters
+\let\implies\Rightarrow
+\let\impliedby\Leftarrow
+\let\iff\Leftrightarrow
+\let\epsilon\varepsilon
+\let\phi\varphi
+\renewcommand{\vec}[1]{\bm{#1}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+% Math operator declarations and commands
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\dis}{d}
+\DeclareMathOperator{\Lim}{Lim}
+\DeclareMathOperator{\interior}{Int}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\DeclarePairedDelimiter\set{\{}{\}}
+\makeatletter
+\let\oldset\set
+\def\set{\@ifstar{\oldset}{\oldset*}}
+
+\newcommand{\eqclass}[1]{\left[ #1 \right]}
+\newcommand{\mult}{{}\cdot{}}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+
+% FORMATTING PACKAGES
+\usepackage[left=1.5in,right=1.5in,top=1in,bottom=1in]{geometry}
+% \usepackage{parskip}
+\usepackage{textcomp}
+\usepackage{eqparbox}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{emptypage}
+\usepackage{microtype}
+\usepackage{tabularx}
+\usepackage{todonotes}
+\setlength{\marginparwidth}{2cm}
+\usepackage[pdfpagelabels]{hyperref}
+\usepackage[capitalise,noabbrev]{cleveref}
+
+% Horizontal rule
+\newcommand\hr{
+    \begin{center}
+        \noindent\rule[0.5ex]{0.975\linewidth}{0.5pt}
+    \end{center}
+}
+
+
+% ENVIRONMENTS
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{theorems, breakable}
+\theoremstyle{definition}
+
+\tcbset{
+    thmbox/.style={
+        enhanced,
+        breakable,
+        sharp corners,
+        borderline west={2pt}{0pt}{#1},
+        boxrule=0pt,
+        fonttitle=\sffamily\bfseries,
+        coltitle=black,
+        colframe=#1,
+        colback=white!95!#1,
+        colbacktitle=white!75!#1,
+        bottomtitle=-0.5pt,
+        parbox=false,
+        before skip=1.5em,
+        after skip=1.5em
+    }
+}
+
+\newtcbtheorem[number within=chapter]{definition}{Definition}{
+    label type=definition,
+    thmbox=blue!75!white
+}{def}
+\newtcbtheorem[number within=chapter]{theorem}{Theorem}{
+    label type=theorem,
+    thmbox=red!75!white
+}{thm}
+\newtcbtheorem[number within=chapter]{lemma}{Lemma}{
+    label type=lemma,
+    thmbox=red!75!white
+}{lem}
+\newtcbtheorem[number within=chapter]{proposition}{Proposition}{
+    label type=proposition,
+    thmbox=red!75!white
+}{prop}
+\newtcbtheorem[number within=chapter]{example}{Example}{
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    borderline west={2pt}{0pt}{black!75!white},
+    boxrule=0pt,
+    fonttitle=\sffamily\bfseries,
+    coltitle=black,
+    attach title to upper={\quad},
+    parbox=false,
+    before skip=1.5em,
+    after skip=1.5em
+}{ex}
+\newtcolorbox{remark}{
+    enhanced jigsaw,
+    breakable,
+    sharp corners,
+    borderline west={2pt}{0pt}{black!75!white},
+    boxrule=0pt,
+    title=Remark,
+    fonttitle=\sffamily\bfseries,
+    coltitle=black,
+    attach title to upper={\quad},
+    parbox=false,
+    before skip=1.5em,
+    after skip=1.5em
+}
+
+\crefname{def}{definition}{definitions}
+\crefname{thm}{theorem}{theorems}
+\crefname{lem}{lemma}{lemmas}
+\crefname{prop}{proposition}{propositions}
+
+% Fix theorem spacing
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=\parskip \thm@postskip=0pt
+}
+
+
+% TITLE AND SECTION STYLING PACKAGES
+\usepackage{titling}
+\usepackage{titleps}
+\usepackage{sectsty}
+
+% Headers and fonts
+\newpagestyle{main}[\sffamily]{
+    \setheadrule{.7pt}%
+    \sethead{\chaptername\ \thechapter}{}{\chaptertitle}
+    \setfoot{}{\thepage}{}
+}
+
+% Set title page and section headings to sans serif
+\pretitle{\begin{center}\LARGE\sffamily}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}
+    \large\sffamily \lineskip 0.5em%
+    \begin{tabular}[t]{c}}
+\postauthor{\end{tabular}\par\end{center}}
+
+\allsectionsfont{\sffamily}
+\renewcommand{\abstractname}{\textsf{Introduction}}
+
+
+% C'est moi!
+\author{Eric M. Ordo\~nez}

@@ -1,0 +1,86 @@
+% !TeX program = lualatex
+% !TeX encoding = utf-8
+
+\documentclass[master.tex]{subfiles}
+% \documentclass[11pt]{report}
+% \input{./preamble.tex}
+
+\begin{document}
+\section{An axiomatic definition of the natural numbers}
+We begin with a set called $\N$.
+We know nothing about it yet, but we will assume these three properties to be axiomatic:
+\begin{enumerate}[label=\textbf{a\arabic*)}]
+    \item $1 \in \N$.\footnote{
+        The standard axiomatization of $\N$ starts with $0$, but we start with $1$ to simplify our approach in constructing $\R$.
+        Starting this way ultimately does not affect any of our subsequent results.
+    }
+    \item $n \in \N \implies (n + 1) \in \N$.
+    \item If $A \subseteq \N$ is a set such that $1 \in A$ and $n \in A \implies (n + 1) \in A$, then $A = \N$.
+\end{enumerate}
+
+But what is $+$?
+Remember that we know nothing about $\N$, so we cannot say right away, for example, that $1 + 1 = 2$.\footnote{
+    Addition, multiplication, and other properties will be defined and proven in the exercises.
+}
+Instead, we generalize these axioms with an (almost) equivalent set of three other axioms.
+Let $\N$ be a set containing $1$ and equipped with a function $S: \N \rightarrow \N$ such that:
+\begin{enumerate}[label=\textbf{b\arabic*)}]
+    \item $\Ima{(S)} = \N \setminus \set{1}$.
+    \item $S$ is injective.
+    \item If $A \subseteq \N$ is a set such that $1 \in A$ and $S(A) \subseteq A$, then $A = \N$.
+\end{enumerate}
+
+The formal link between these sets of axioms is the definition $S(n) := n + 1$, which we call a \emph{successor function}.
+The latter set gives the standard axiomatization of the natural numbers known as the \emph{Peano axioms}.\footnote{
+    Named in honor of Giuseppe Peano, 1858--1932.
+}
+\begin{definition}{Peano axioms}{peano-axioms}
+    $\N$ is a set called the \textbf{natural numbers}, equipped with a function $S: \N \rightarrow \N$.
+    \begin{enumerate}
+        \item $1 \in \N$.
+        \item $\Ima{(S)} = \N \setminus \set{1}$.
+        \item $S$ is injective.
+        \item If $A \subseteq \N$ is a set such that $1 \in A$ and $S(A) \subseteq A$, then $A = \N$.
+    \end{enumerate}
+\end{definition}
+
+But do axioms \textbf{a1--3} and the Peano axioms produce the same version of $\N$?
+Consider what would happen if $\N$ were a finite set.
+A finite $\N$ can satisfy axioms \textbf{a1--3}, but our intuition tells us that $\N$ should be infinite.
+This is further explored in the exercises.
+(Note: Adding the assumption that $\N$ is infinite to axioms \textbf{a1--3} makes them equivalent to the Peano axioms).
+
+    \subsection*{Exercises}
+    \begin{enumerate}
+        \item Let $\N$ be the natural numbers given by the Peano axioms. 
+        Prove that $S$ is injective if and only if $\N$ is not a finite set.
+
+        \item Prove that the fourth Peano axiom implies the principle of mathematical induction:\footnote{
+            We will henceforth freely use induction as a proof technique.
+        }
+        \begin{quote}
+            Let $P(n)$ be a proposition whose truth value depends on the value $n \in \N$.
+            Suppose $P(1)$ is true and that $P(n) \implies P(n + 1)$ for all $n \geq 1$.
+            Then $P(n)$ is true for all $n \in \N$.
+        \end{quote}
+
+        \item Define \emph{addition} $(+)$ in $\N$ by
+        \begin{itemize}
+            \item $\forall n \in \N \quad n + 1 = S(n)$, and
+            \item $\forall m, n \in \N \quad n + S(m) = S(n + m)$;
+        \end{itemize}
+        and \emph{multiplication} $(\cdot)$ in $\N$ by
+        \begin{itemize}
+            \item $\forall n \in \N \quad n \cdot 1 = n$, and
+            \item $\forall m, n \in \N \quad n \cdot S(m) = n \cdot m + n$.
+        \end{itemize}
+        Prove the following properties:
+        \begin{enumerate}
+            \item $n \in \N \setminus \set{1} \implies \exists! \, n' \in \N$ such that $n = S(n')$.
+            \item $\forall a \in \N \quad a + 1 = 1 + a$.
+            \item $+$ is associative: $\forall a, b, c \in \N \quad a + (b + c) = (a + b) + c$.
+            \item $+$ is commutative: $\forall a, b \in \N \quad a + b = b + a$.
+            \item $\cdot$ distributes over $+$: $\forall a, b, c \in \N \quad a \cdot (b + c) = (a \cdot b) + (a \cdot c)$.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}

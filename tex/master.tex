@@ -1,0 +1,66 @@
+% !TeX program = lualatex
+% !TeX encoding = utf-8
+
+\documentclass[11pt,notitlepage]{report}
+\input{./preamble.tex}
+\usepackage{subfiles}
+
+\title{Real Analysis}
+\date{}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{empty}
+
+    \begin{abstract}
+        These are my course notes for Real Variables (MATH 447), which I took at the University of Illinois Urbana--Champaign as instructed by Marius Junge.
+        The course is a careful development of elementary real analysis for those who intend to take graduate courses in mathematics.
+        It covers, with a fair amount of abstraction and numerous proofs,
+        \begin{itemize}[noitemsep]
+            \item Real numbers
+            \item Sequences
+            \item Metric spaces
+            \item Spaces of continuous functions
+            \item Differentiation
+            \item Integration
+        \end{itemize}
+
+        I adapted the 447 lectures and course material to create this personal reference for my future studies.
+        All credit for the exercises goes to Jason Elliot; the selected solutions are my own.
+        I take all responsibility for any mistakes in the text.
+        Please contact me for corrections or questions through my \href{https://ericmordonez.com}{website}.
+
+        Last updated: \today.
+    \end{abstract}
+
+    \tableofcontents
+    \thispagestyle{empty}
+
+    % Begin lectures
+    \pagestyle{main}
+
+    \part{Real Numbers}
+        \chapter{Construction of the real numbers}
+        This course is an introduction to analysis of the real numbers, $\R$.
+        But what is $\R$?
+        There are two broad answers we may be familiar with from calculus but have never had to formally define:
+        \begin{enumerate}[noitemsep]
+            \item $\R$ is a unique complete and ordered field;
+            \item $\R$ is a particular subset of $2^{\Q}$.
+        \end{enumerate}
+        This chapter will connect both answers en route to a proper, mathematical definition of the real numbers.
+        The plan is:
+        \begin{enumerate}[noitemsep]
+            \item An axiomatic definition of $\N$ followed by the Grothendieck constructions of $\Z$ and $\Q$;
+            \item The Dedekind construction of $\R$ from $\Q$. 
+        \end{enumerate}
+    
+        A purely set theoretic approach is beyond our scope, but we will utilize basic set theory and topology.
+        We also assume basic knowledge of algebraic structures like groups, rings, and fields.
+        The goal is a rigorous foundation of calculus emphasizing self-contained proofs that convince us that the tools and techniques we are familiar with from calculus are indeed valid.    
+        
+        \subfile{lecture_01.tex}
+        \subfile{lecture_02.tex}
+        \subfile{lecture_03.tex}
+    % End lectures
+\end{document}
