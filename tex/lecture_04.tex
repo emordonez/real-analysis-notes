@@ -1,0 +1,157 @@
+% !TeX program = lualatex
+% !TeX encoding = utf-8
+
+\documentclass[master.tex]{subfiles}
+% \documentclass[11pt]{report}
+% \input{./preamble.tex}
+
+\begin{document}
+\section{Real numbers as Dedekind cuts}
+Now we can construct $\R$ in a way that shows it to be both a complete, ordered field and a subset of $2^{\Q}$ by using \emph{Dedekind cuts}.
+
+\begin{definition}{Dedekind cut}{dedekind-cut}
+    A \textbf{Dedekind cut} is a set $A \subseteq \Q$ such that:
+    \begin{itemize}
+        \item $\forall a \in A \quad b \leq a \implies b \in A$.
+        \item $\forall a \in A \quad \exists a' > a$ such that $a' \in A$.
+    \end{itemize}
+\end{definition}
+
+The first condition says a Dedekind cut is open downward, i.e.\ it continues to $-\infty$.
+The second condition says it is open upward, i.e.\ it has no maximal element in the cut.
+(Note that this does not necessarily mean it goes to $\infty$).
+
+\begin{example}{}{r-dedekind}
+    Let $R := \set{D \subseteq \Q : D \text{ is Dedekind}}$ and define $\phi : \Q \rightarrow R$ by $q \mapsto \set{a : a < q}$.
+    Then $R$ is Dedekind.
+\end{example}
+
+For a visual interpretation of Example \ref{ex:r-dedekind} (and setting aside for a moment that we do not know what ``real numbers'' are yet), imagine cutting the real line at every rational $q$.
+Every rational to the left of $q$ is in the cut $D$, and no matter which $a \in D$ we pick, we can always find another rational to the right of $a$ that is arbitrarily less than $q$ and therefore in $D$.
+
+\begin{example}{}{sqrt-2-dedekind}
+    $A_{\sqrt{2}} := \set{x \in \Q : x^2 < 2 \text{ or } x \leq 0}$ is Dedekind.
+\end{example}
+
+Try showing that these example sets satisfy Definition \ref{def:dedekind-cut}.
+
+Since $\Q$ is totally ordered, Example \ref{ex:r-dedekind} suggests that we can also order Dedekind cuts.
+Indeed, this shows us that that set $R$ of Dedekind cuts is complete.
+
+\begin{definition}{}{}
+    Let $D_1, D_2 \in R$.
+    If $D_1 \subseteq D_2$, then we say $D_1 \leq D_2$.
+\end{definition}
+
+\begin{lemma}{}{set-of-dedekind-complete}
+    $R$ is complete.
+    \hr{}
+    \begin{proof}
+        Let $S \subset R$ be a nonempty set of Dedekind cuts and let $D \in R$ be an upper bound for $S$.
+        Then for every $s \in S$, by definition $s \leq D$ and $s \subseteq D$.
+
+        Now define $\sup{S} := \bigcup_{s \in S} s$.
+        This union is trivially contained in $D$, and we can also confirm it is in $R$ by showing it verifies the conditions of Definition \ref{def:dedekind-cut}.
+        Thus, $\sup{S} \leq D$.
+
+        To show that $\sup{S}$ is indeed a supremum, we must show that it is the least upper bound for $S$.
+        Let $D' \in R$ be another upper bound.
+        Then for every $s \in S$ we have $s \subseteq D'$, which implies $\sup{S} = \cup_{s \in S} s \subseteq D'$ and therefore $\sup{S} \leq D'$.
+    \end{proof}
+\end{lemma}
+
+However, is $R$ the real numbers that we are familiar with?
+Not quite, because this set is too big!
+Note that $\Q$ itself is a Dedekind cut in $R$ that would correspond to $\infty$, which we know is not a number.
+Hence, we refine our definition of $R$ to give a proper definition of the \emph{real numbers}.
+
+\begin{definition}{Real numbers}{}
+    The \textbf{real numbers} $\R$ are the set of proper Dedekind cuts
+    \[
+        \R := \set{D \subset \Q : D \neq \Q \text{ is Dedekind}}
+    .\]
+    If $D \neq \Q$, then take any $q \notin D$.
+    No $q' > q$ can be in $D$, so we can equivalently define $\R$ by
+    \[
+       \R := \set{D \in R : \exists q \in \Q \text{ such that } D < \phi(q)}
+    ,\]
+    where $\phi : \Q \rightarrow \R$ is analagously defined as in Example \ref{ex:r-dedekind}.
+\end{definition}
+
+\begin{remark}
+    $\R$ is complete.
+    \hr{}
+    \begin{proof}
+        If $D \in \R$, then by definition there exists $q_0$ such that $D < \phi(q_0)$.
+        This implies
+        \[
+            \sup{D} < \phi(q_0) \implies \sup{D} \neq \infty \implies \sup{D} \in \R
+        .\]
+        The rest of the proof is the same as for Lemma \ref{lem:set-of-dedekind-complete}.
+    \end{proof}
+\end{remark}
+
+\hr{}
+
+We now consider the field nature of $\R$.
+Define the \textbf{positive reals} $\R^{+}$ as the set
+\[
+    \R^{+} := \set{D \in \R : (-\infty, 0] \subseteq D}
+,\]
+and define addition and multiplication in it by
+\begin{align*}
+    D_1 + D_2 &= \bigcup \set{d_1 + d_2 : D_1^{+}, d_2 \in D_2^{+}} \\
+    D_1 D_2 &= \bigcup \set{d_1 d_2 : d_1 \in D_1^{+}, d_2 \in D_2^{+}}.
+\end{align*}
+Since negative numbers complicate multiplication, we can assume that $D \in \R^{+}$ is a subset of $\Q^{+}$ and ``starts'' at $0$ rather than $-\infty$.
+More formally, we can view this as $\R^{+} = \set{D \subset \Q^{+} : D \cup (-\infty, 0] \text{ is Dedekind}}$.
+
+
+With these operations, $\R^{+}$ satisfies the field axioms with associative, commutative, and distributive properties (verify these for practice!):
+\begin{align*}
+    D_1 + (D_2 + D_3) &= (D_1 + D_2) + D_3 \\
+    D_1 (D_2 + D_3) &= D_1 D_2 + D_1 D_3 \\
+    &\vdotswithin{=}
+\end{align*}
+Indeed, $\R^{+}$ is a commutative and cancellative semigroup under $+$.
+Our final answer to what the real numbers are is that $\R$ is the Grothendieck group for $\R^{+}$:
+\[
+    \R = G(\R^{+}, +)
+.\]
+
+\begin{lemma}{}{}
+    $\R$ is totally ordered.
+    \hr{}
+    \begin{proof}
+        Let $D_1, D_2 \in \R$.
+        There are two cases:
+        \begin{enumerate}
+            \item[] Case 1: $D_1 \subseteq D_2$.
+            Then by definition $D_1 \leq D_2$, and we are done.
+
+            \item[] Case 2: $D_1 \not\subseteq D_2$.
+            Then there exists $d_1 \in D_1$ that is not in $D_2$.
+            This means for every $d_2 \in D_2$ we have $d_2 < d_1$.
+            By definition, this implies $D_2 \subseteq D_1$ and hence $D_2 \leq D_1$.
+        \end{enumerate}
+    \end{proof}
+\end{lemma}
+
+    \subsection*{Exercises}
+    \begin{enumerate}[font=\bfseries]
+        \item Let $\phi : \Q^{+} \rightarrow \R^{+}$ (where $\R^{+}$ is a set of Dedekind cuts) be the function defined by
+        \[
+            \phi(q) := \set{a \in \Q : a < q}
+        .\]
+        \begin{enumerate}[font=\bfseries]
+            \item Prove that $\phi$ is injective and order-preserving, i.e.\ show that if $q < q'$, then $\phi(q) < \phi(q')$.
+            \item Prove that $\phi$ respects both field operations:
+            \[
+                \phi(qr) = \phi(q) \phi(r) \text{ and } \phi(q + r) = \phi(q) + \phi(r)
+            .\] 
+        \end{enumerate}
+
+        \item Let $A_{\sqrt{2}}$ be the Dedekind cut from Example \ref{ex:sqrt-2-dedekind}.
+        Prove that $\sup{A_{\sqrt{2}}} = \sqrt{2}$.
+    \end{enumerate}
+\end{document}
