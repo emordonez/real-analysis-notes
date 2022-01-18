@@ -1,0 +1,154 @@
+% !TeX program = lualatex
+% !TeX encoding = utf-8
+
+\documentclass[master.tex]{subfiles}
+% \documentclass[11pt]{report}
+% \input{./preamble.tex}
+
+\begin{document}
+\section{Three key properties of the real numbers}
+    We now state and prove three key properties of $\R$ that will be essential for future sections.
+    \begin{enumerate}
+        \item $\Q$ is dense in $\R$.\footnote{
+            We will give and utilize a topological definition of density in later sections.
+        }
+        \item $\R$ is not countable.\footnote{
+            Recall that a set is \emph{countable} if there exists a bijection between it and $\N$.
+        }
+        \item For all $a \in \R$, there exists $n \in \N$ such that $n > a$ (the Archimedean property).
+    \end{enumerate}    
+
+    \subsection{Density of the rationals in the reals}
+    Let $D_1 < D_2 \in \R$ be Dedekind cuts.
+    To prove density of $\Q$ in $\R$, it suffices to show that there exists a rational number in between $D_1$ and $D_2$.
+
+    By definition $D_1 \subsetneq D_2$, so there exists $d \in D_2$ that is not in $D_1$.
+    Then the Dedekind cut given by $\phi(d) = (-\infty, d)$ satisfies $D_1 \subsetneq \phi(d) \subsetneq D_2
+    $, which implies $D_1 < \phi(d) < D_2$. \qed
+
+    \subsection{The reals are uncountable}
+    To prove this property, we first prove the uncountability of the power set of $\N$.
+    \begin{lemma}{}{power-n-uncountable}
+        $2^{\N}$ is uncountable.
+        \hr{}
+        \begin{proof}
+            Assume toward contradiction that $2^{\N}$ is countable.
+            Then there exists a bijection $\phi : \N \rightarrow 2^{\N}$.
+            Define the set
+            \[
+                B := \set{n \in \N : n \notin \phi(n)} \subset \N  
+            .\]
+            Since $B \in 2^{\N}$ and $\phi$ is bijective, there exists $m \in \N$ such that $\phi(m) = B$.
+            Then there are two possible cases:
+            \begin{enumerate}
+                \item $m \in B$.
+                Then $m \notin \phi(m) = B$, a contradiction.
+
+                \item $m \notin B = \phi(m)$.
+                Then $m \in B$, another contradiction.
+            \end{enumerate}
+            Thus, $2^{\N}$ must be uncountable.
+        \end{proof}
+    \end{lemma}
+    
+    Note that if a set is countable, then every subset of that set is either countable or finite, since every subset of $\N$ is either countable or finite.
+    This fact motivates the following.
+
+    Let $\phi : 2^{\N} \rightarrow [0, 1]$ be defined by
+    \[
+        \phi(A) = \sum_{k \in A} 3^{-k} = \sup \bigg\{ \sum_{\substack{k \in A \\ k \leq n}} 3^{-k}: n \in \N \bigg\}
+    .\]
+    We will show that $\phi$ is both well-defined and injective.\footnote{
+        The usual proof that $[0, 1]$ is uncountable uses binary rather than ternary expansions.
+        However, such a mapping is \emph{not} injective.
+        For example, take a number in the unit interval with a binary expansion whose last bit is $1$.
+        Changing that bit to $0$ followed by an infinite sequence of $1$'s gives another representation of the same number.
+    }
+    
+    For the former, we need to show that the supremum on the right-hand side exists.
+    Fix $A \subset \N$.
+    Then for all $n \in \N$,
+    \begin{align*}
+        \sum_{\substack{k \in A \\ k \leq n}} 3^{-k} &\leq \sum_{1 \leq k \leq n} 3^{-k} \\
+        &= \frac{1}{3} \left(\sum_{k \leq n - 1} 3^{-k}\right) \\
+        &= \frac{1}{3} \left(\frac{1 - 3^{-n}}{1 - 1/3}\right) \\
+        &\leq \frac{1}{3} \cdot \frac{3}{2} \\
+        &= \frac{1}{2},
+    \end{align*}
+    so $\phi(A)$ is bounded above and therefore has a least upper bound by the completeness of $\R$.
+
+    For injectivity, let $A \neq B \subset \N$, and we must show that $\phi(A) \neq \phi(B)$.
+    For all $n \in \N$, indicate with $1$ whether $n$ is in $A$ or $B$, and $0$ otherwise:
+    \[
+        \begin{array}{c|cccccc}
+            n & 1 & 2 & 3 & 4 & 5 & \cdots \\
+            \hline
+            A & 0 & 1 & 1 & 0 & 1 & \cdots \\
+            B & 0 & 1 & 0 & 0 & 1 & \cdots
+        \end{array}
+    \]
+    Without loss of generality, let $m_0 = \min{\set{m \in A : m \notin B}}$, i.e.\ $m_0$ is the first number where the two sets disagree.
+    So for every $j < m_0$, both $j \in A$ and $j \in B$.
+    Then
+    \[
+        \phi(A) \geq 3^{-m_0} + \sum_{\substack{j < m_0 \\ j \in A}} 3^{-j}, \quad \phi(B) = \sup_k \sum_{\substack{j \leq k \\ j \in B}} 3^{-j}
+    ,\]
+    and for simplicity denote
+    \[
+        \alpha_{m_0} = \sum_{\substack{j < m_0 \\ j \in A}} 3^{-j}, \quad \phi_k(B) = \sum_{\substack{j \leq k \\ j \in B}} 3^{-j}
+    .\]
+    Fix $k$.
+    Since $m_0 \notin B$ we have
+    \[
+        \phi_k(B) = \alpha_{m_0} + \sum_{\substack{m_0 < j \in B \\ j \leq k}} 3^{-j} \leq \alpha_{m_0} + \sum_{m_0 < j \leq k} 3^{-j}
+    .\]
+    In particular, the summation on the right-hand side yields
+    \begin{align*}
+        \sum_{m_0 < j \leq k} 3^{-j} &\leq \sum_{j > m_0} 3^{-j} \\
+        &= 3^{-(m_0 + 1)} \sum_{j \geq 0} 3^{-j} \\
+        &= 3^{-(m_0 + 1)} \cdot \frac{1}{1 - 1/3} \\
+        &= 3^{-(m_0 + 1)} \cdot \frac{3}{2} \\
+        &= \frac{3^{-m_0}}{2}.
+    \end{align*}
+    This implies
+    \[
+        \phi_k(B) \leq \alpha_{m_0} + \frac{3^{-m_0}}{2} < \phi(A)
+    ,\]
+    and therefore
+    \[
+        \phi(B) = \sup_k \phi_k(B) < \phi(A)
+    .\]\qed
+    
+    This result now shows us that the real numbers are indeed uncountable.
+    \begin{theorem}{}{r-uncountable}
+        $\R$ is uncountable.
+        \hr{}
+        \begin{proof}
+            Let $\phi : 2^{\N} \rightarrow [0, 1]$ be defined as before.
+            Assume toward contradiction that $\R$ is countable.
+            Then $[0, 1]$ must also be countable, which would imply $\phi(2^\N) \subseteq [0, 1]$ is countable.
+            But $\phi$ is injective and there cannot exist an injection from an uncountable set into a countable set, so $2^{\N}$ would have to be countable in contradiction to Lemma \ref{lem:power-n-uncountable}.
+        \end{proof}
+    \end{theorem}
+    This theorem immediately tells us that $[0, 1]$ is uncountable, another useful result.
+
+    \subsection{The Archimedean property}
+    We wish to show that for all $a \in \R$, there exists $n \in \N$ such that $a < n$.
+    Suppose otherwise by way of contradiction.
+    Then $\N$ is bounded above, so $\sup{\N} = S$ exists by the completeness of $\R$.
+    Then there exists natural $n$ such that $S - \frac{1}{2} < n < S$.
+    Indeed, $n + 1 \leq S$ is also a natural number, but
+    \[
+        S + \frac{1}{2} = S - \frac{1}{2} + 1 < n + 1 \leq S
+    ,\]
+    a clear contradiction. \qed
+
+
+    \subsection*{Exercises}
+    \begin{enumerate}[font=\bfseries]
+        \item Using the previous section's definition of the positive reals $\R^{+}$, prove the Archimedean property of $\R^{+}$:
+        \[
+            \forall a \in \R^{+} \: \exists n \in \N \text{ such that } n > a
+        .\]
+    \end{enumerate}
+\end{document}
