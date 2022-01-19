@@ -25,7 +25,7 @@ Remember that we know nothing about $\N$, so we cannot say right away, for examp
 Instead, we generalize these axioms with an (almost) equivalent set of three other axioms.
 Let $\N$ be a set containing $1$ and equipped with a function $S: \N \rightarrow \N$ such that:
 \begin{enumerate}[label=\textbf{b\arabic*)}]
-    \item $\Ima{(S)} = \N \setminus \set{1}$.
+    \item $S(\N) = \N \setminus \set{1}$.
     \item $S$ is injective.
     \item If $A \subseteq \N$ is a set such that $1 \in A$ and $S(A) \subseteq A$, then $A = \N$.
 \end{enumerate}
@@ -38,7 +38,7 @@ The latter set gives the standard axiomatization of the natural numbers known as
     $\N$ is a set called the \textbf{natural numbers}, equipped with a function $S: \N \rightarrow \N$.
     \begin{enumerate}
         \item $1 \in \N$.
-        \item $\Ima{(S)} = \N \setminus \set{1}$.
+        \item $S(\N) = \N \setminus \set{1}$.
         \item $S$ is injective.
         \item If $A \subseteq \N$ is a set such that $1 \in A$ and $S(A) \subseteq A$, then $A = \N$.
     \end{enumerate}
@@ -51,8 +51,8 @@ This is further explored in the exercises.
 (Note: Adding the assumption that $\N$ is infinite to axioms \textbf{a1--3} makes them equivalent to the Peano axioms).
 
     \subsection*{Exercises}
-    \begin{enumerate}
-        \item Let $\N$ be the natural numbers given by the Peano axioms. 
+    \begin{exercises}
+        \item Let $\N$ be the natural numbers given by the Peano axioms in \Cref{def:peano-axioms}.
         Prove that $S$ is injective if and only if $\N$ is not a finite set.
 
         \item Prove that the fourth Peano axiom implies the principle of mathematical induction:\footnote{
@@ -75,12 +75,12 @@ This is further explored in the exercises.
             \item $\forall m, n \in \N \quad n \cdot S(m) = n \cdot m + n$.
         \end{itemize}
         Prove the following properties:
-        \begin{enumerate}
+        \begin{exercises}
             \item $n \in \N \setminus \set{1} \implies \exists! \, n' \in \N$ such that $n = S(n')$.
             \item $\forall a \in \N \quad a + 1 = 1 + a$.
             \item $+$ is associative: $\forall a, b, c \in \N \quad a + (b + c) = (a + b) + c$.
             \item $+$ is commutative: $\forall a, b \in \N \quad a + b = b + a$.
             \item $\cdot$ distributes over $+$: $\forall a, b, c \in \N \quad a \cdot (b + c) = (a \cdot b) + (a \cdot c)$.
-        \end{enumerate}
-    \end{enumerate}
+        \end{exercises}
+    \end{exercises}
 \end{document}

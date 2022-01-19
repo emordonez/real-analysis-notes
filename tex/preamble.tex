@@ -61,6 +61,7 @@
 \setlength{\marginparwidth}{2cm}
 \usepackage[pdfpagelabels]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
+\usepackage{nameref}
 
 % Horizontal rule
 \newcommand\hr{
@@ -111,6 +112,7 @@
     thmbox=red!75!white
 }{prop}
 \newtcbtheorem[number within=chapter]{example}{Example}{
+    label type=ex,
     enhanced jigsaw,
     breakable,
     sharp corners,
@@ -142,12 +144,18 @@
 \crefname{thm}{theorem}{theorems}
 \crefname{lem}{lemma}{lemmas}
 \crefname{prop}{proposition}{propositions}
+\crefname{ex}{example}{examples}
 
 % Fix theorem spacing
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=\parskip \thm@postskip=0pt
 }
+
+% Exercises
+\newenvironment{exercises}
+    {\begin{enumerate}[font=\sffamily\bfseries]}
+    {\end{enumerate}}
 
 
 % TITLE AND SECTION STYLING PACKAGES

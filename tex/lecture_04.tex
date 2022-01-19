@@ -26,16 +26,16 @@ The second condition says it is open upward, i.e.\ it has no maximal element in 
     Then $R$ is Dedekind.
 \end{example}
 
-For a visual interpretation of Example \ref{ex:r-dedekind} (and setting aside for a moment that we do not know what ``real numbers'' are yet), imagine cutting the real line at every rational $q$.
+For a visual interpretation of \Cref{ex:r-dedekind} (and setting aside for a moment that we do not know what ``real numbers'' are yet), imagine cutting the real line at every rational $q$.
 Every rational to the left of $q$ is in the cut $D$, and no matter which $a \in D$ we pick, we can always find another rational to the right of $a$ that is arbitrarily less than $q$ and therefore in $D$.
 
 \begin{example}{}{sqrt-2-dedekind}
     $A_{\sqrt{2}} := \set{x \in \Q : x^2 < 2 \text{ or } x \leq 0}$ is Dedekind.
 \end{example}
 
-Try showing that these example sets satisfy Definition \ref{def:dedekind-cut}.
+Try showing that these example sets satisfy \Cref{def:dedekind-cut}.
 
-Since $\Q$ is totally ordered, Example \ref{ex:r-dedekind} suggests that we can also order Dedekind cuts.
+Since $\Q$ is totally ordered, \Cref{ex:r-dedekind} suggests that we can also order Dedekind cuts.
 Indeed, this shows us that that set $R$ of Dedekind cuts is complete.
 
 \begin{definition}{}{}
@@ -51,7 +51,7 @@ Indeed, this shows us that that set $R$ of Dedekind cuts is complete.
         Then for every $s \in S$, by definition $s \leq D$ and $s \subseteq D$.
 
         Now define $\sup{S} := \bigcup_{s \in S} s$.
-        This union is trivially contained in $D$, and we can also confirm it is in $R$ by showing it verifies the conditions of Definition \ref{def:dedekind-cut}.
+        This union is trivially contained in $D$, and we can also confirm it is in $R$ by showing it verifies the conditions of \Cref{def:dedekind-cut}.
         Thus, $\sup{S} \leq D$.
 
         To show that $\sup{S}$ is indeed a supremum, we must show that it is the least upper bound for $S$.
@@ -75,7 +75,7 @@ Hence, we refine our definition of $R$ to give a proper definition of the \emph{
     \[
        \R := \set{D \in R : \exists q \in \Q \text{ such that } D < \phi(q)}
     ,\]
-    where $\phi : \Q \rightarrow \R$ is analagously defined as in Example \ref{ex:r-dedekind}.
+    where $\phi : \Q \rightarrow \R$ is analagously defined as in \Cref{ex:r-dedekind}.
 \end{definition}
 
 \begin{remark}
@@ -87,7 +87,7 @@ Hence, we refine our definition of $R$ to give a proper definition of the \emph{
         \[
             \sup{D} < \phi(q_0) \implies \sup{D} \neq \infty \implies \sup{D} \in \R
         .\]
-        The rest of the proof is the same as for Lemma \ref{lem:set-of-dedekind-complete}.
+        The rest of the proof is the same as for \Cref{lem:set-of-dedekind-complete}.
     \end{proof}
 \end{remark}
 
@@ -138,20 +138,20 @@ Our final answer to what the real numbers are is that $\R$ is the Grothendieck g
 \end{lemma}
 
     \subsection*{Exercises}
-    \begin{enumerate}[font=\bfseries]
+    \begin{exercises}
         \item Let $\phi : \Q^{+} \rightarrow \R^{+}$ (where $\R^{+}$ is a set of Dedekind cuts) be the function defined by
         \[
             \phi(q) := \set{a \in \Q : a < q}
         .\]
-        \begin{enumerate}[font=\bfseries]
+        \begin{exercises}
             \item Prove that $\phi$ is injective and order-preserving, i.e.\ show that if $q < q'$, then $\phi(q) < \phi(q')$.
             \item Prove that $\phi$ respects both field operations:
             \[
                 \phi(qr) = \phi(q) \phi(r) \text{ and } \phi(q + r) = \phi(q) + \phi(r)
             .\] 
-        \end{enumerate}
+        \end{exercises}
 
-        \item Let $A_{\sqrt{2}}$ be the Dedekind cut from Example \ref{ex:sqrt-2-dedekind}.
+        \item Let $A_{\sqrt{2}}$ be the Dedekind cut from \Cref{ex:sqrt-2-dedekind}.
         Prove that $\sup{A_{\sqrt{2}}} = \sqrt{2}$.
-    \end{enumerate}
+    \end{exercises}
 \end{document}

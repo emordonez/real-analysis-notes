@@ -151,7 +151,7 @@
 
 
 \subsection*{Exercises}
-\begin{enumerate}
+\begin{exercises}
     \item A \emph{totally ordered semigroup} is a semigroup $(A, +)$ with an order relation $\leq$ that satisfies the following properties:
     \begin{itemize}
         \item $\forall a \in A \quad a \leq a$;
@@ -160,15 +160,15 @@
         \item Either $a \leq b$ or $b \leq a$ for all $a, b \in A$;
         \item $\forall a, b, c \in A \quad a \leq b \implies a + c \leq b + c$.
     \end{itemize}
-    \begin{enumerate}
+    \begin{exercises}
         \item Give a definition for a total order $\leq$ on $\N$ such that $n \leq S(n)$ for all $n$.
         Prove that the above properties hold.
         \item Prove that if $x \leq y$, then there exists a unique $z \in \N$ such that $x + z = y$.
-    \end{enumerate}
+    \end{exercises}
 
-    \item In this exercise, we finish the proof of the Grothendieck lemma.
+    \item In this exercise, we finish the proof of the \nameref{lem:grothendieck-lemma}.
     Let $S$ be a commutative semigroup with cancellation and $G(S)$ its Grothendieck group.
-    \begin{enumerate}
+    \begin{exercises}
         \item Prove that the function $\iota : S \rightarrow G(S)$ defined by $s \mapsto \eqclass{(s + s, s)}$ is injective and satisfies $\iota(s + t) = \iota(s) + \iota(t)$ for all $s, t \in S$.\footnote{
             This shows that $\iota$ is an injective homomorphism that embeds $S$ into $G(S)$, hence $G(S)$ ``contains'' $S$ as $\iota(S)$.
         }
@@ -176,7 +176,7 @@
         Prove that there is a function $\psi : G(S) \rightarrow G$ such that $\psi \circ \iota = \phi$ and $\psi(g + h) = \psi(g) \cdot \psi(h)$ for all $g, h \in G(S)$.\footnote{
             This shows that $G(S)$ is the ``smallest'' abelian group containing $S$.
         }
-    \end{enumerate}
+    \end{exercises}
 
     \item Let $(S, +, \leq)$ be a totally ordered commutative semigroup with cancellation.
     Define an order relation $\leq$ on its Grothendieck group $G(S)$ by
@@ -184,11 +184,11 @@
         \eqclass{(a, b)} \leq \eqclass{(c, d)} \iff a + d \leq b + c
     .\]
     Prove that
-    \begin{enumerate}
+    \begin{exercises}
         \item $\forall s, t, c \in S \quad s + c \leq t + c \implies s \leq t$;
         \item $\forall s,t \in S \quad \eqclass{(s + s, s)} \leq \eqclass{(t + t, t)} \iff s \leq t$;
         \item $(G(S), \leq)$ is a totally ordered group.
-    \end{enumerate}
+    \end{exercises}
     
     \item Given the Grothendieck group definition of $\Z$, define addition in $\Z$ as follows:
     \begin{align*}
@@ -202,7 +202,7 @@
             \hfil 0 &\text{if } x = y.
         \end{cases}
     \end{align*}
-    \begin{enumerate}
+    \begin{exercises}
         \item Prove that the function $\phi : G(\N, +) \rightarrow \Z$ defined by
         \[
             \phi\left(\eqclass{a, b}\right) =
@@ -216,7 +216,7 @@
 
         \item For $x, y \in \Z$, define $x \leq y$ to mean $\phi^{-1}(x) \leq \phi^{-1}(y)$.
         Prove that $(a, +) > 0$ and $(a, -) < 0$ for all $a \in \N$.
-    \end{enumerate}
+    \end{exercises}
 
     \item Define multiplication in $\Z$ as follows:
     \begin{align*}
@@ -226,9 +226,9 @@
         (x, +) \cdot (y, -) &= (x \cdot y, -) \\
         (x, -) \cdot (y, +) &= (x \cdot y, -)
     \end{align*}
-    \begin{enumerate}
+    \begin{exercises}
         \item Prove that $(\Z \setminus \set{0}, \mult{})$ is a commutative semigroup with cancellation.
         \item $(\Z, +)$ is a totally ordered group, so verify that $a, b > 0 \implies ab > 0$.
-    \end{enumerate}
-\end{enumerate}
+    \end{exercises}
+\end{exercises}
 \end{document}
