@@ -26,6 +26,12 @@
     Then the Dedekind cut given by $\phi(d) = (-\infty, d)$ satisfies $D_1 \subsetneq \phi(d) \subsetneq D_2
     $, which implies $D_1 < \phi(d) < D_2$. \qed
 
+    \begin{figure}[ht]
+        \centering
+        \incfig{1.4-density-q}
+        \caption{No matter the nonzero distance between $D_1$ and $D_2$ (or their corresponding real numbers $r_1$ and $r_2$), there is always another Dedekind cut $\phi(d)$ between them that corresponds to the rational number $d$ such that $r_1 < d < r_2$.}
+    \end{figure}
+
     \subsection{The reals are uncountable}
     To prove this property, we first prove the uncountability of the power set of $\N$.
     \begin{lemma}{}{power-n-uncountable}
@@ -56,7 +62,7 @@
 
     Let $\phi : 2^{\N} \rightarrow [0, 1]$ be defined by
     \[
-        \phi(A) = \sum_{k \in A} 3^{-k} = \sup \bigg\{ \sum_{\substack{k \in A \\ k \leq n}} 3^{-k}: n \in \N \bigg\}
+        \phi(A) := \sum_{k \in A} 3^{-k} = \sup \bigg\{ \sum_{\substack{k \in A \\ k \leq n}} 3^{-k}: n \in \N \bigg\}
     .\]
     We will show that $\phi$ is both well-defined and injective.\footnote{
         The usual proof that $[0, 1]$ is uncountable uses binary rather than ternary expansions.

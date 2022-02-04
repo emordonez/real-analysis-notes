@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3in"
+   height="1in"
+   viewBox="0 0 76.200001 25.400001"
+   version="1.1"
+   id="svg5011"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="1.4-density-q.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5013"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="in"
+     inkscape:zoom="2.9398148"
+     inkscape:cx="137.76378"
+     inkscape:cy="1.7007874"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5008">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect13119"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1000" />
+    </marker>
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect856"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+       d="m 7.2482008,9.9459279 c 20.0769122,0 40.1338072,0 60.2003122,0"
+       id="path854"
+       inkscape:path-effect="#path-effect856"
+       inkscape:original-d="m 7.2482008,9.9459279 c 20.0769122,2.64e-4 40.1338072,2.64e-4 60.2003122,0" />
+    <path
+       id="path5682"
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 29.753457,13.763842 c 0,0 0.820867,-1.22999 1.102014,-1.908741 0.252127,-0.608689 0.511561,-1.9091731 0.511561,-1.9091731 M 29.753457,6.1280136 c 0,0 0.820867,1.2299893 1.102014,1.9087413 0.252127,0.608689 0.511561,1.909173 0.511561,1.909173"
+       sodipodi:nodetypes="caccac" />
+    <path
+       id="path5254"
+       style="fill:none;stroke:#000000;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 50.920125,13.763842 c 0,0 0.820867,-1.22999 1.102014,-1.908741 C 52.274266,11.246412 52.5337,9.9459279 52.5337,9.9459279 M 50.920125,6.1280136 c 0,0 0.820867,1.2299893 1.102014,1.9087413 0.252127,0.608689 0.511561,1.909173 0.511561,1.909173"
+       sodipodi:nodetypes="caccac" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="27.439308"
+       y="18.51569"
+       id="text6864"><tspan
+         sodipodi:role="line"
+         id="tspan6862"
+         style="stroke-width:0.264583"
+         x="27.439308"
+         y="18.51569">$D_1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="48.887039"
+       y="18.51569"
+       id="text9358"><tspan
+         sodipodi:role="line"
+         id="tspan9356"
+         style="stroke-width:0.264583"
+         x="48.887039"
+         y="18.51569">$D_2$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="37.964046"
+       y="18.51569"
+       id="text11446"><tspan
+         sodipodi:role="line"
+         id="tspan11444"
+         style="stroke-width:0.264583"
+         x="37.964046"
+         y="18.51569">$\phi(d)$</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.208396px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 41.480119,7.7240149 c 0,1.481439 0,2.9627141 0,4.4438251"
+       id="path13117"
+       inkscape:path-effect="#path-effect13119"
+       inkscape:original-d="m 41.480119,7.7240149 c 2.64e-4,1.481439 2.64e-4,2.9627141 0,4.4438251" />
+  </g>
+</svg>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="3in"
+   height="3in"
+   viewBox="0 0 76.200002 76.200002"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="1.2-set-partition.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="in"
+     width="3in"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:zoom="1.4699074"
+     inkscape:cx="166.33701"
+     inkscape:cy="137.42362"
+     inkscape:window-width="1920"
+     inkscape:window-height="1003"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:object-paths="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#f9f9f9;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 40.827184,6.8866204 C 31.820339,7.7467025 21.66984,9.6437177 15.275379,16.044801 9.7681694,21.557714 8.1257811,30.29984 7.4107068,38.059365 6.6689501,46.108431 6.5039932,55.464384 11.258009,62.001738 15.105047,67.291887 22.484668,72.87881 28.730083,70.934545 36.586857,68.488647 33.463297,53.55763 40.447573,49.206631 48.22849,44.359348 61.440356,54.635556 67.929465,48.160196 73.282188,42.818815 71.227588,32.66817 68.840727,25.492873 66.627976,18.840979 61.656662,12.661959 55.576657,9.1723315 51.261691,6.6957507 45.779831,6.413682 40.827184,6.8866204 Z"
+       id="path7431"
+       sodipodi:nodetypes="aaaaaaaaaa" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 11.120544,61.809989 c 0,0 7.914776,-1.341124 10.431435,-4.102896 2.122264,-2.328964 0.35487,-6.899396 2.629808,-9.079474 2.2399,-2.146501 6.018669,-2.903284 9.041749,-2.206429 2.262204,0.521464 5.360498,4.446402 5.360498,4.446402"
+       id="path7598"
+       sodipodi:nodetypes="caaac" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 29.475969,46.265615 c 0,0 0.684282,-8.559667 -1.125794,-12.232663 -1.759002,-3.569355 -5.106192,-6.534588 -8.760563,-8.109376 -2.988066,-1.287655 -9.7392432,-0.653047 -9.7392432,-0.653047"
+       id="path7770"
+       sodipodi:nodetypes="caac" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 70.31425,30.671116 c 0,0 -15.359161,-4.408753 -23.267027,-4.732863 -4.507688,-0.184751 -9.209122,0.0348 -13.4391,1.603456 -2.456934,0.911134 -6.525762,4.38345 -6.525762,4.38345"
+       id="path7984"
+       sodipodi:nodetypes="caac" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 36.296099,7.4128092 c 0,0 1.974131,8.1114328 2.310496,12.2546568 C 38.785805,21.874904 38.4449,26.3096 38.4449,26.3096"
+       id="path8118"
+       sodipodi:nodetypes="cac" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 51.139063,26.346381 c 0,0 -1.713634,9.115603 -1.861251,13.732644 -0.08743,2.734578 0.580564,8.187367 0.580564,8.187367"
+       id="path8252"
+       sodipodi:nodetypes="cac" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="23.822491"
+       y="21.17391"
+       id="text12879"><tspan
+         sodipodi:role="line"
+         id="tspan12877"
+         style="stroke-width:0.264583"
+         x="23.822491"
+         y="21.17391">$Y_1$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="48.252369"
+       y="19.464916"
+       id="text16103"><tspan
+         sodipodi:role="line"
+         id="tspan16101"
+         style="stroke-width:0.264583"
+         x="48.252369"
+         y="19.464916">$Y_2$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="15.280185"
+       y="42.230095"
+       id="text16833"><tspan
+         sodipodi:role="line"
+         id="tspan16831"
+         style="stroke-width:0.264583"
+         x="15.280185"
+         y="42.230095">$Y_3$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="37.983284"
+       y="39.539379"
+       id="text17607"><tspan
+         sodipodi:role="line"
+         id="tspan17605"
+         style="stroke-width:0.264583"
+         x="37.983284"
+         y="39.539379">$Y_4$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="58.089249"
+       y="41.639111"
+       id="text18197"><tspan
+         sodipodi:role="line"
+         id="tspan18195"
+         style="stroke-width:0.264583"
+         x="58.089249"
+         y="41.639111">$Y_5$</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.23333px;line-height:1.25;font-family:Aileron;-inkscape-font-specification:Aileron;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="24.717588"
+       y="61.172443"
+       id="text20247"><tspan
+         sodipodi:role="line"
+         id="tspan20245"
+         style="stroke-width:0.264583"
+         x="24.717588"
+         y="61.172443">$\dots$</tspan></text>
+  </g>
+</svg>

@@ -1,3 +1,6 @@
+figures/*.pdf
+figures/*.pdf_tex
+
 tex/*.aux
 tex/*.fdb_latexmk
 tex/*.fls

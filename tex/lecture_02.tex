@@ -16,24 +16,24 @@
             \item \textbf{transitive} if $\forall x, y, z \in X$ $\left[ (x, y) \in R \text{ and } (y, z) \in R \right] \implies (x, z) \in R$.
         \end{itemize}
         The statement $(x, y) \in R$ is read ``$x$ is \emph{related} to $y$.''
-        Alternatively, we write this as $x \sim y$.
+        Alternatively, we write this as $x R y$ or $x \sim y$.
 
         $R$ is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
-        For any equivalence relation $R$ on a set $X$, we define the \emph{equivalence class} of $x \in X$ by
+        For any equivalence relation $R$ on a set $X$, we define the \emph{equivalence class} of $x \in X$ to be the set of all elements of $X$ that are related to $x$,
         \[
             \eqclass{x} = \set{y \in X \mid x \sim y}
         ,\]
         where $\eqclass{\cdot}: X \rightarrow 2^X$ is a mapping from $x$ to its equivalence class.
         The set of all equivalence classes is the image of $X$ under $\eqclass{\cdot}$,
         \[
-            \faktor{X}{\sim} = \Ima{\left\lbrack \cdot \right\rbrack} \subset 2^X  
+            \faktor{X}{\sim} = \eqclass{X} \subset 2^X  
         .\]
 
         \begin{remark}
             Let $X$ be any set with $\sim$ an equivalence relation on $X$.
             Then
             \[
-                X = \bigcup_{Y \in \nicefrac{X}{\sim}} Y  
+                X = \bigsqcup_{Y \in \nicefrac{X}{\sim}} Y  
             ,\]
             i.e.\ the equivalence relation $\sim$ partitions $X$ into a disjoint collection of equivalence classes.
             \hr{}
@@ -51,6 +51,27 @@
             \end{proof}
         \end{remark}
 
+        \begin{figure}[ht]
+            \centering
+            \incfig{1.2-set-partition}
+            \caption{A set $X$ partitioned by an equivalence relation $\sim$ into pairwise disjoint equivalence classes $Y_i$.}
+        \end{figure}
+
+        Although we have not yet formally introduced $\Z$, consider the following example from abstract algebra:
+
+        \begin{example}{}{}
+            Fix $n \in \N$.
+            We say for any $a, b \in \Z$ that $a \sim b$ if $n \mid a - b$.
+            Then $a$ is \emph{congruent} to $b$ modulo $n$, or $a \equiv b \mod{n}$.
+            Congruence modulo $n$ is an equivalence relation on $\Z$, and the ring $\Z_n$ is the set of equivalence classes under this relation:
+            \begin{align*}
+                \Z_2 &= \set{\eqclass{0}, \eqclass{1}} \\
+                \Z_3 &= \set{\eqclass{0}, \eqclass{1}, \eqclass{{2}}} \\
+                &\vdotswithin{=} \\
+                \Z_n &= \set{\eqclass{0}, \eqclass{1}, \eqclass{2}, \dots, \eqclass{n - 1}} \\
+                &\vdotswithin{=}
+            \end{align*}
+        \end{example}
 
     \subsection{Grothendieck groups}
         Recall that a \emph{semigroup} is an algebraic structure consisting of a set together with an associative binary operation.
@@ -78,18 +99,18 @@
                 and we will prove by induction that $A(m)$ holds for all $m \in \N$.
                 When $m = 1$ we have
                 \[
-                    l + 1 = k + 1 \iff S(l) = S(k)  
+                    k + 1 = l + 1 \iff S(k) = S(l)  
                 ,\]
-                which implies $l = k$ since $S$ is injective.
+                which implies $k = l$ since $S$ is injective.
 
                 Now assume $A(m)$ is true for some $m \geq 1$.
-                Let $l, k \in \N$ satisfy
+                Let $k, l \in \N$ satisfy
                 \[
-                    l + (m + 1) = k + (m + 1)
+                    k + (m + 1) = l + (m + 1)
                 .\]
                 Then by associativity and the induction hypothesis,
                 \begin{align*}
-                    (l + m) + 1 = (k + m) + 1 &\xRightarrow{A(1)} l + m = k + m \\
+                    (k + m) + 1 = (l + m) + 1 &\xRightarrow{A(1)} k + m = l + m \\
                     &\xRightarrow{A(m)} k = l.
                 \end{align*}
             \end{proof}
@@ -101,7 +122,7 @@
             \begin{itemize}
                 \item \eqmakebox[abelianAxioms][l]{$1 \circ g = g \circ 1 = g$} \emph{identity}
                 \item \eqmakebox[abelianAxioms][l]{$(g \circ h) \circ k = g \circ (h \circ k)$} \emph{associativity}
-                \item \eqmakebox[abelianAxioms][l]{$\forall g \: \exists! \, h \quad g \circ h = h \circ g = 1$ \qquad\qquad} \emph{invertibility}
+                \item \eqmakebox[abelianAxioms][l]{$\forall g \: \exists! \, h$ such that $g \circ h = h \circ g = 1$ \qquad\qquad} \emph{invertibility}
                 \item \eqmakebox[abelianAxioms][l]{$g \circ h = h \circ g$} \emph{commutativity}
             \end{itemize}
         \end{definition}
