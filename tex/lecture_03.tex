@@ -6,7 +6,7 @@
 % \input{./preamble.tex}
 
 \begin{document}
-\subsection{Integers and rationals as Grothendieck groups}
+    \subsection{Integers and rationals as Grothendieck groups}
     The Grothendieck lemma states that for any commutative semigroup with cancellation, $(S, +)$, we can construct a Groenthdieck group $G(S)$ for $S$ by defining
     \[
         G(S) := \faktor{(S \times S)}{\sim}
@@ -22,7 +22,7 @@
 
     \begin{remark}
         Define the order relation $<$ on $\N$ by saying $n < n'$ if there exists $k \in \N$ such that $n' = n + k$.
-        This relation satisfies the \emph{trichotomy law}: For any $n, n' \in \N$, exactly one of the following holds:
+        This relation satisfies the \emph{trichotomy law:} For all $n, n' \in \N$, exactly one of the following holds:
         \begin{enumerate}
             \item $n < n'$
             \item $n' < n$
@@ -30,9 +30,9 @@
         \end{enumerate}
     \end{remark}
 
-    \begin{lemma}{}{n-multiplicative-cancellation}
+    \begin{lemma}[label=n-multiplicative-cancellation]
         $(\N, \mult{})$ has the cancellation property.
-        \hr{}
+        \tcblower
         \begin{proof}
             Let $B(m)$ be the statement
             \[
@@ -65,12 +65,12 @@
         \end{proof}
     \end{lemma}
 
-    We are now ready for a formal definition of the \textbf{integers}, $\Z$.
+    We are now ready for a formal definition of the \emph{integers} $\Z$.
     The integers are the smallest abelian group containing $\N$ equipped with addition; $\Z$ is the Grothendieck group for $(\N, +)$ given by
     \begin{align*}
         \Z &:= G(\N, +) \\
         &= \faktor{(\N \times \N)}{\sim} \\
-        &= \left( \N \times \set{+} \right) \cup \left( \N \times \set{-} \right) \cup \set{0},
+        &:= \left( \N \times \set{+} \right) \cup \left( \N \times \set{-} \right) \cup \set{0},
     \end{align*}
     where each integer is an equivalence class denoted by
     \[
@@ -85,16 +85,16 @@
     
     So what Grothendieck groups can be constructed from $(\N, \mult{})$ and $\Z$?
     The answer, perhaps unsurprisingly, is the \emph{rational numbers}.
-    \begin{definition}{Rational numbers}{rational-numbers}
-        The \textbf{positive rationals} are defined by
+    \begin{definition}[title=Rational numbers, label=rational-numbers]
+        The \emph{positive rationals} $\Q^{+}$ are defined by
         \[
-            \Q^{+} := G(\N, \mult{}) = \set{\frac{p}{q} : p, q \in \N}
+            \Q^{+} := G(\N, \mult{}) = \set[\frac{p}{q}]{p, q \in \N}
         .\]
-        The \textbf{rationals} can be equivalently defined by two Grothendieck groups:
+        The \emph{rationals} $\Q$ can be equivalently defined by two Grothendieck groups:
         \begin{align*}
             \Q &:= G(\Q^{+}, +) \quad \text{where} \quad \frac{p}{q} + \frac{p'}{q'} = \frac{pq' + p'q}{qq'}
             \intertext{and}
-            \Q &:= G(\Z \setminus \set{0}, \mult{}) = \set{\frac{p}{q} : p \in \Z, q \in \N}.
+            \Q &:= G(\Z \setminus \set{0}, \mult{}) = \set[\frac{p}{q}]{p \in \Z, q \in \N}.
         \end{align*}
     \end{definition}
 
@@ -113,8 +113,8 @@
         \begin{tabularx}{\textwidth}{p{0.45\linewidth} p{0.45\linewidth}}
             \textbf{Field axioms} & \textbf{Order axioms} \\
             \begin{itemize}[topsep=0pt]
-                \item $(\Q, +, 0)$ is an abelian group.
-                \item $(\Q \setminus \set{0}, \mult{}, 1)$ is an abelian group.
+                \item $(\Q, +, 0)$ is abelian.
+                \item $(\Q \setminus \set{0}, \mult{}, 1)$ is abelian.
                 \item $a \cdot (b + c) = a \cdot b + a \cdot c$.
             \end{itemize} &
             \begin{itemize}[topsep=0pt]
@@ -126,116 +126,116 @@
     \end{figure*}
 
     More generally, ordered fields allow us to introduce the concept of \emph{upper bounds} and \emph{least upper bounds}.
-    \begin{definition}{(Least) upper bound}{lub}
+    \begin{definition}[title=(Least) upper bound, label=lub]
         Let $F$ be an ordered field.
         Given $A \subseteq F$ and $b \in F$:
         \begin{enumerate}
-            \item $b$ is an \textbf{upper bound} for $A$ if $a \leq b$ for all $a \in A$.
+            \item $b$ is an \emph{upper bound} for $A$ if $a \leq b$ for all $a \in A$.
             This is also denoted by $A \leq b$.
-            \item $b$ is a \textbf{least upper bound} if $A \leq b$ and $b \leq b'$ for any upper bound $b'$.
-            This is called the \textbf{supremum} of $A$, denoted by $\sup{A}$.
+            \item $b$ is a \emph{least upper bound} if $A \leq b$ and $b \leq b'$ for any upper bound $b'$.
+            This is called the \emph{supremum} of $A$, denoted by $\sup{A}$.
         \end{enumerate}
     \end{definition}
 
-    \begin{figure}
+    \begin{figure}[ht]
         \centering
         \incfig{1.3-upper-bound}
         \caption{$A$ is bounded above both by $b = \sup{A}$ and $b'$. Note that the supremum of a set need not necessarily belong to the set.}
     \end{figure}
 
     The supremum will be key to our discussion of completeness, which is a concept we introduce here for ordered fields.
-    \begin{definition}{Complete ordered field}{complete-ordered-field}
-        An ordered field $F$ is called \textbf{complete} if for every nonempty subset $A \subset F$ there exists $b' \in F$ such that $A \leq b'$, then there exists $b \in F$ such that $b = \sup{A}$.
+    \begin{definition}[title=Complete ordered field, label=complete-ordered-field]
+        An ordered field $F$ is called \emph{complete} if for every nonempty subset $A \subset F$ there exists $b' \in F$ such that $A \leq b'$, then there exists $b \in F$ such that $b = \sup{A}$.
         In other words, every set $A$ bounded above has a supremum $b$.
     \end{definition}
 
-    \begin{example}{}{}
-        $\set{x \in \Q : x^2 < 2}$ has no supremum in $\Q$, so $\Q$ is not complete.
+    \begin{example}
+        $\set[x \in \Q]{x^2 < 2}$ has no supremum in $\Q$, so $\Q$ is not complete.
     \end{example}
 
     Recall from the start of the chapter our prior definitions of $\R$ as a unique complete and ordered field as well as a particular subset of $2^{\Q}$.
     Now that we have working definitions of both complete ordered fields and $\Q$, we can properly construct $\R$.
 
 
-\subsection*{Exercises}
-\begin{exercises}
-    \item A \emph{totally ordered semigroup} is a semigroup $(A, +)$ with an order relation $\leq$ that satisfies the following properties for all $a, b, c \in A$:
-    \begin{itemize}
-        \item $a \leq a$;
-        \item $a \leq b, \ b \leq a \implies a = b$;
-        \item $a \leq b, \ b \leq c \implies a \leq c$;
-        \item $a \leq b$ or $b \leq a$;
-        \item $a \leq b \implies a + c \leq b + c$.
-    \end{itemize}
+    \subsection*{Exercises}
     \begin{exercises}
-        \item Give a definition for a total order $\leq$ on $\N$ such that $n \leq S(n)$ for all $n$.
-        Prove that the above properties hold.
-        \item Prove that if $x \leq y$, then there exists a unique $z \in \N$ such that $x + z = y$.
-    \end{exercises}
+        \item A \emph{totally ordered semigroup} is a semigroup $(A, +)$ with an order relation $\leq$ that satisfies the following properties for all $a, b, c \in A$:
+        \begin{itemize}
+            \item $a \leq a$;
+            \item $a \leq b, \ b \leq a \implies a = b$;
+            \item $a \leq b, \ b \leq c \implies a \leq c$;
+            \item $a \leq b$ or $b \leq a$;
+            \item $a \leq b \implies a + c \leq b + c$.
+        \end{itemize}
+        \begin{exercises}
+            \item Give a definition for a total order $\leq$ on $\N$ such that $n \leq S(n)$ for all $n$.
+            Prove that the above properties hold.
+            \item Prove that if $x \leq y$, then there exists a unique $z \in \N$ such that $x + z = y$.
+        \end{exercises}
 
-    \item In this exercise, we finish the proof of the \nameref{lem:grothendieck-lemma}.
-    Let $S$ be a commutative semigroup with cancellation and $G(S)$ its Grothendieck group.
-    \begin{exercises}
-        \item Prove that the function $\iota : S \rightarrow G(S)$ defined by $s \mapsto \eqclass{(s + s, s)}$ is injective and satisfies $\iota(s + t) = \iota(s) + \iota(t)$ for all $s, t \in S$.\footnote{
-            This shows that $\iota$ is an injective homomorphism that embeds $S$ into $G(S)$, hence $G(S)$ ``contains'' $S$ as $\iota(S)$.
-        }
-        \item Let $(G, \mult{})$ be a group and $\phi : S \rightarrow G$ a function such that $\phi(x + y) = \phi(x) \cdot \phi(y)$.
-        Prove that there is a function $\psi : G(S) \rightarrow G$ such that $\psi \circ \iota = \phi$ and $\psi(g + h) = \psi(g) \cdot \psi(h)$ for all $g, h \in G(S)$.\footnote{
-            This shows that $G(S)$ is the ``smallest'' abelian group containing $S$.
-        }
-    \end{exercises}
+        \item In this exercise, we finish the proof of the \nameref{lem:grothendieck-lemma}.
+        Let $S$ be a commutative semigroup with cancellation and $G(S)$ its Grothendieck group.
+        \begin{exercises}
+            \item Prove that the function $\iota : S \rightarrow G(S)$ defined by $s \mapsto \eqclass{(s + s, s)}$ is injective and satisfies $\iota(s + t) = \iota(s) + \iota(t)$ for all $s, t \in S$.\footnote{
+                This shows that $\iota$ is an injective homomorphism that embeds $S$ into $G(S)$, hence $G(S)$ ``contains'' $S$ as $\iota(S)$.
+            }
+            \item Let $(G, \mult{})$ be a group and $\phi : S \rightarrow G$ a function such that $\phi(x + y) = \phi(x) \cdot \phi(y)$.
+            Prove that there is a function $\psi : G(S) \rightarrow G$ such that $\psi \circ \iota = \phi$ and $\psi(g + h) = \psi(g) \cdot \psi(h)$ for all $g, h \in G(S)$.\footnote{
+                This shows that $G(S)$ is the ``smallest'' abelian group containing $S$.
+            }
+        \end{exercises}
 
-    \item Let $(S, +, \leq)$ be a totally ordered commutative semigroup with cancellation.
-    Define an order relation $\leq$ on its Grothendieck group $G(S)$ by
-    \[
-        \eqclass{(a, b)} \leq \eqclass{(c, d)} \iff a + d \leq b + c
-    .\]
-    Prove that
-    \begin{exercises}
-        \item $\forall s, t, c \in S \quad s + c \leq t + c \implies s \leq t$;
-        \item $\forall s,t \in S \quad \eqclass{(s + s, s)} \leq \eqclass{(t + t, t)} \iff s \leq t$;
-        \item $(G(S), \leq)$ is a totally ordered group.
-    \end{exercises}
-    
-    \item Given the Grothendieck group definition of $\Z$, define addition in $\Z$ as follows:
-    \begin{align*}
-        0 + z = z + 0 &= z \quad \forall z \in \Z \\
-        (x, +) + (y, +) &= (x + y, +) \\
-        (x, -) + (y, -) &= (x + y, -) \\
-        (x, +) + (y, -) &=
-        \begin{cases}
-            (x - y, +) &\text{if } y < x \\
-            (y - x, -) &\text{if } x < y \\
-            \hfil 0 &\text{if } x = y.
-        \end{cases}
-    \end{align*}
-    \begin{exercises}
-        \item Prove that the function $\phi : G(\N, +) \rightarrow \Z$ defined by
+        \item Let $(S, +, \leq)$ be a totally ordered commutative semigroup with cancellation.
+        Define an order relation $\leq$ on its Grothendieck group $G(S)$ by
         \[
-            \phi\left(\eqclass{a, b}\right) =
+            \eqclass{(a, b)} \leq \eqclass{(c, d)} \iff a + d \leq b + c
+        .\]
+        Prove that
+        \begin{exercises}
+            \item $\forall s, t, c \in S \quad s + c \leq t + c \implies s \leq t$;
+            \item $\forall s,t \in S \quad \eqclass{(s + s, s)} \leq \eqclass{(t + t, t)} \iff s \leq t$;
+            \item $(G(S), \leq)$ is a totally ordered group.
+        \end{exercises}
+        
+        \item Given the Grothendieck group definition of $\Z$, define addition in $\Z$ as follows:
+        \begin{align*}
+            0 + z = z + 0 &= z \quad \forall z \in \Z \\
+            (x, +) + (y, +) &= (x + y, +) \\
+            (x, -) + (y, -) &= (x + y, -) \\
+            (x, +) + (y, -) &=
             \begin{cases}
-                (a - b, +) &\text{if } b < a \\
-                (b - a, -) &\text{if } a < b \\
-                \hfil 0 &\text{if } a = b
+                (x - y, +) &\text{if } y < x \\
+                (y - x, -) &\text{if } x < y \\
+                \hfil 0 &\text{if } x = y.
             \end{cases}
-        \]
-        is bijective and satisfies $\phi\left(\eqclass{a + c, b + d}\right) = \phi\left(\eqclass{a, b}\right) + \phi\left(\eqclass{c, d}\right)$.
+        \end{align*}
+        \begin{exercises}
+            \item Prove that the function $\phi : G(\N, +) \rightarrow \Z$ defined by
+            \[
+                \phi\left(\eqclass{a, b}\right) =
+                \begin{cases}
+                    (a - b, +) &\text{if } b < a \\
+                    (b - a, -) &\text{if } a < b \\
+                    \hfil 0 &\text{if } a = b
+                \end{cases}
+            \]
+            is bijective and satisfies $\phi\left(\eqclass{a + c, b + d}\right) = \phi\left(\eqclass{a, b}\right) + \phi\left(\eqclass{c, d}\right)$.
 
-        \item For $x, y \in \Z$, define $x \leq y$ to mean $\phi^{-1}(x) \leq \phi^{-1}(y)$.
-        Prove that $(a, +) > 0$ and $(a, -) < 0$ for all $a \in \N$.
-    \end{exercises}
+            \item For $x, y \in \Z$, define $x \leq y$ to mean $\phi^{-1}(x) \leq \phi^{-1}(y)$.
+            Prove that $(a, +) > 0$ and $(a, -) < 0$ for all $a \in \N$.
+        \end{exercises}
 
-    \item Define multiplication in $\Z$ as follows:
-    \begin{align*}
-        0 \cdot z = z \cdot 0 &= 0 \quad \forall z \in \Z \\
-        (x, +) \cdot (y, +) &= (x \cdot y, +) \\
-        (x, -) \cdot (y, -) &= (x \cdot y, +) \\
-        (x, +) \cdot (y, -) &= (x \cdot y, -) \\
-        (x, -) \cdot (y, +) &= (x \cdot y, -)
-    \end{align*}
-    \begin{exercises}
-        \item Prove that $(\Z \setminus \set{0}, \mult{})$ is a commutative semigroup with cancellation.
-        \item $(\Z, +)$ is a totally ordered group, so verify that $a, b > 0 \implies ab > 0$.
+        \item Define multiplication in $\Z$ as follows:
+        \begin{align*}
+            0 \cdot z = z \cdot 0 &= 0 \quad \forall z \in \Z \\
+            (x, +) \cdot (y, +) &= (x \cdot y, +) \\
+            (x, -) \cdot (y, -) &= (x \cdot y, +) \\
+            (x, +) \cdot (y, -) &= (x \cdot y, -) \\
+            (x, -) \cdot (y, +) &= (x \cdot y, -)
+        \end{align*}
+        \begin{exercises}
+            \item Prove that $(\Z \setminus \set{0}, \mult{})$ is a commutative semigroup with cancellation.
+            \item $(\Z, +)$ is a totally ordered group, so verify that $a, b > 0 \implies ab > 0$.
+        \end{exercises}
     \end{exercises}
-\end{exercises}
 \end{document}

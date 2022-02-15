@@ -34,15 +34,15 @@
 
     \subsection{The reals are uncountable}
     To prove this property, we first prove the uncountability of the power set of $\N$.
-    \begin{lemma}{}{power-n-uncountable}
+    \begin{lemma}[label=power-n-uncountable]
         $2^{\N}$ is uncountable.
-        \hr{}
+        \tcblower
         \begin{proof}
             Assume toward contradiction that $2^{\N}$ is countable.
             Then there exists a bijection $\phi : \N \rightarrow 2^{\N}$.
             Define the set
             \[
-                B := \set{n \in \N : n \notin \phi(n)} \subset \N  
+                B := \set[n \in \N]{n \notin \phi(n)} \subset \N  
             .\]
             Since $B \in 2^{\N}$ and $\phi$ is bijective, there exists $m \in \N$ such that $\phi(m) = B$.
             Then there are two possible cases:
@@ -93,7 +93,7 @@
             B & 0 & 1 & 0 & 0 & 1 & \cdots
         \end{array}
     \]
-    Without loss of generality, let $m_0 = \min{\set{m \in A : m \notin B}}$, i.e.\ $m_0$ is the first number where the two sets disagree.
+    Without loss of generality, let $m_0 = \min{\set[m \in A]{m \notin B}}$, i.e.\ $m_0$ is the first number where the two sets disagree.
     So for every $j < m_0$, both $j \in A$ and $j \in B$.
     Then
     \[
@@ -126,9 +126,9 @@
     .\]\qed
     
     This result now shows us that the real numbers are indeed uncountable.
-    \begin{theorem}{}{r-uncountable}
+    \begin{theorem}[label=r-uncountable]
         $\R$ is uncountable.
-        \hr{}
+        \tcblower
         \begin{proof}
             Let $\phi : 2^{\N} \rightarrow [0, 1]$ be defined as before.
             Assume toward contradiction that $\R$ is countable.
