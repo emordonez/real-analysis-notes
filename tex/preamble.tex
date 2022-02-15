@@ -1,4 +1,4 @@
-% MATH PACKAGES
+% MATH PACKAGES ===============================================================
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -22,43 +22,49 @@
 \let\epsilon\varepsilon
 \let\phi\varphi
 \renewcommand{\vec}[1]{\bm{#1}}
-\renewcommand\qedsymbol{$\blacksquare$}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 
 % Math operator declarations and commands
-\DeclareMathOperator{\Ima}{Im}
 \DeclareMathOperator{\dis}{d}
 \DeclareMathOperator{\Lim}{Lim}
 \DeclareMathOperator{\interior}{Int}
 
-\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \makeatletter
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \let\oldabs\abs
 \def\abs{\@ifstar{\oldabs}{\oldabs*}}
 
-\DeclarePairedDelimiter\set{\{}{\}}
-\makeatletter
-\let\oldset\set
-\def\set{\@ifstar{\oldset}{\oldset*}}
+\DeclarePairedDelimiter\setc{\{}{\}}
+\let\oldset\setc
+\def\setc{\@ifstar{\oldset}{\oldset*}}
+
+\newcommand{\set}[2][\@empty]{%
+    \ifx\@empty#1
+        \setc{\,#2\,}
+    \else
+        \setc{\,#1 \;\middle|\; #2\,}
+    \fi
+}
+\makeatother
 
 \newcommand{\eqclass}[1]{\left[ #1 \right]}
 \newcommand{\mult}{{}\cdot{}}
 \newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
 
 
-% FORMATTING PACKAGES
-\usepackage[left=1.5in,right=1.5in,top=1in,bottom=1in]{geometry}
+% FORMATTING PACKAGES =========================================================
+\usepackage[top=1in,right=1.5in,bottom=1in,left=1.5in,asymmetric]{geometry}
+\setlength{\marginparwidth}{2cm}
 % \usepackage{parskip}
 \usepackage{textcomp}
 \usepackage{eqparbox}
 \usepackage{float}
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage{xcolor-material}
 \usepackage{enumitem}
 \usepackage{emptypage}
 \usepackage{microtype}
 \usepackage{tabularx}
-\usepackage{todonotes}
-\setlength{\marginparwidth}{2cm}
 \usepackage[pdfpagelabels]{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
 \usepackage{nameref}
@@ -71,73 +77,88 @@
 }
 
 
-% ENVIRONMENTS
+% ENVIRONMENTS ================================================================
 \usepackage[most]{tcolorbox}
-\tcbuselibrary{theorems, breakable}
-\theoremstyle{definition}
+\tcbuselibrary{breakable, theorems}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\betternewtcbtheorem}{O{}mmmm}{%
+    \newtcbtheorem[#1]{#2inner}{#3}{#4}{#5}
+    \NewDocumentEnvironment{#2}{O{}}{%
+        \keys_set:nn { hushus/tcb } { ##1 }
+        \hushus_tcb_begin:nVV {#2inner} \l__hushus_tcb_title_tl \l__hushus_tcb_label_tl
+    }{%
+        \end{#2inner}
+    }
+    \cs_if_exist:cF { c@#5 } { \newcounter{#5} }
+}
+\cs_new_protected:Nn \hushus_tcb_begin:nnn {%
+    \begin{#1}{#2}{#3}}
+\cs_generate_variant:Nn \hushus_tcb_begin:nnn { nVV }
+\keys_define:nn { hushus/tcb }{%
+    title .tl_set:N = \l__hushus_tcb_title_tl,
+    label .tl_set:N = \l__hushus_tcb_label_tl,
+}
+\ExplSyntaxOff
 
 \tcbset{
-    thmbox/.style={
-        enhanced,
+    thmtitle/.style={
+        attach title to upper=\\[0.5em]
+    },
+    remtitle/.style={
+        attach title to upper=\quad
+    },
+    thmbox/.style 2 args={
+        enhanced jigsaw,
         breakable,
         sharp corners,
-        borderline west={2pt}{0pt}{#1},
+        skin=bicolor,
+        borderline west={3pt}{0pt}{#1},
         boxrule=0pt,
         fonttitle=\sffamily\bfseries,
-        coltitle=black,
+        description font=\sffamily\mdseries,
+        description delimiters={(}{)},
+        description color=#1,
+        separator sign={\ },
+        coltitle=#1,
         colframe=#1,
-        colback=white!95!#1,
-        colbacktitle=white!75!#1,
-        bottomtitle=-0.5pt,
+        colback=#2,
+        colbacklower=white,
         parbox=false,
         before skip=1.5em,
         after skip=1.5em
     }
 }
 
-\newtcbtheorem[number within=chapter]{definition}{Definition}{
+\betternewtcbtheorem[number within=chapter]{definition}{Definition}{
+    thmtitle,
     label type=definition,
-    thmbox=blue!75!white
+    thmbox={MaterialBlue700}{MaterialBlue50},
 }{def}
-\newtcbtheorem[number within=chapter]{theorem}{Theorem}{
+\betternewtcbtheorem[number within=chapter]{theorem}{Theorem}{
+    thmtitle,
     label type=theorem,
-    thmbox=red!75!white
+    thmbox={MaterialPurple700}{MaterialPurple50}
 }{thm}
-\newtcbtheorem[number within=chapter]{lemma}{Lemma}{
+\betternewtcbtheorem[number within=chapter]{lemma}{Lemma}{
+    thmtitle,
     label type=lemma,
-    thmbox=red!75!white
+    thmbox={MaterialDeepOrange700}{MaterialDeepOrange50}
 }{lem}
-\newtcbtheorem[number within=chapter]{proposition}{Proposition}{
+\betternewtcbtheorem[number within=chapter]{proposition}{Proposition}{
+    thmtitle,
     label type=proposition,
-    thmbox=red!75!white
+    thmbox={MaterialDeepOrange700}{MaterialDeepOrange50}
 }{prop}
-\newtcbtheorem[number within=chapter]{example}{Example}{
-    label type=ex,
-    enhanced jigsaw,
-    breakable,
-    sharp corners,
-    borderline west={2pt}{0pt}{black!75!white},
-    boxrule=0pt,
-    fonttitle=\sffamily\bfseries,
-    coltitle=black,
-    attach title to upper={\quad},
-    parbox=false,
-    before skip=1.5em,
-    after skip=1.5em
+\betternewtcbtheorem[number within=chapter]{example}{Example}{
+    remtitle,
+    label type=example,
+    thmbox={MaterialGrey700}{MaterialGrey50}
 }{ex}
 \newtcolorbox{remark}{
-    enhanced jigsaw,
-    breakable,
-    sharp corners,
-    borderline west={2pt}{0pt}{black!75!white},
-    boxrule=0pt,
     title=Remark,
-    fonttitle=\sffamily\bfseries,
-    coltitle=black,
-    attach title to upper={\quad},
-    parbox=false,
-    before skip=1.5em,
-    after skip=1.5em
+    remtitle,
+    thmbox={MaterialGreen700}{MaterialGreen50}
 }
 
 \crefname{def}{definition}{definitions}
@@ -149,18 +170,19 @@
 % Fix theorem spacing
 \makeatletter
 \def\thm@space@setup{%
-  \thm@preskip=\parskip \thm@postskip=0pt
+    \thm@preskip=\parskip \thm@postskip=0pt
 }
+\makeatother
 
 % Exercises
 \newenvironment{exercises}
     {\begin{enumerate}[font=\sffamily\bfseries]}
     {\end{enumerate}}
 
-% FIGURES
+
+% FIGURES =====================================================================
 \usepackage{caption}
 \usepackage{import}
-\usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
     
@@ -171,25 +193,29 @@
 \captionsetup{
     format=plain,
     labelsep=quad,
-    labelfont={bf,sf},
+    labelfont={sf,bf},
     font=sf
 }
-\numberwithin{figure}{section}
+\numberwithin{figure}{chapter}
 
 
-% TITLE AND SECTION STYLING PACKAGES
+% TITLE AND SECTION STYLING PACKAGES ====================================================
+\usepackage{etoolbox}
 \usepackage{titling}
 \usepackage{titleps}
 \usepackage{sectsty}
 
-% Headers and fonts
+% Headers
 \newpagestyle{main}[\sffamily]{
-    \setheadrule{.7pt}%
-    \sethead{\chaptername\ \thechapter}{}{\chaptertitle}
-    \setfoot{}{\thepage}{}
+    \sethead
+    [\chaptername\ \thechapter][\chaptertitle][\bfseries\thepage]%
+    {\S\thesection}{\sectiontitle}{\bfseries\thepage}
 }
+\patchcmd{\tableofcontents}{plain}{empty}{}{}
+\patchcmd{\part}{plain}{empty}{}{}
+\patchcmd{\chapter}{plain}{empty}{}{}
 
-% Set title page and section headings to sans serif
+% Sans serif titles and section headings
 \pretitle{\begin{center}\LARGE\sffamily}
 \posttitle{\par\end{center}\vskip 0.5em}
 \preauthor{\begin{center}
@@ -198,7 +224,21 @@
 \postauthor{\end{tabular}\par\end{center}}
 
 \allsectionsfont{\sffamily}
+\sectionfont{\sffamily\sectionrule{0pt}{0pt}{-1ex}{1pt}}
 \renewcommand{\abstractname}{\textsf{Introduction}}
+
+
+% TABLE OF CONTENTS ===========================================================
+% \usepackage{tocloft}
+% \renewcommand{\cfttoctitlefont}{\sffamily}
+% \renewcommand{\cftpartfont}{\sffamily}
+% \renewcommand{\cftpartpagefont}{\sffamily}
+% \renewcommand{\cftchapfont}{\sffamily}
+% \renewcommand{\cftchappagefont}{\sffamily}
+% \renewcommand{\cftsecfont}{\sffamily}
+% \renewcommand{\cftsecpagefont}{\sffamily}
+% \renewcommand{\cftsubsecfont}{\sffamily}
+% \renewcommand{\cftsubsecpagefont}{\sffamily}
 
 
 % C'est moi!

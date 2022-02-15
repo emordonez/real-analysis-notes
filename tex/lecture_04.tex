@@ -9,8 +9,8 @@
 \section{Real numbers as Dedekind cuts}
 Now we can construct $\R$ in a way that shows it to be both a complete, ordered field and a subset of $2^{\Q}$ by using \emph{Dedekind cuts}.
 
-\begin{definition}{Dedekind cut}{dedekind-cut}
-    A \textbf{Dedekind cut} is a set $A \subseteq \Q$ such that:
+\begin{definition}[title=Dedekind cut, label=dedekind-cut]
+    A \emph{Dedekind cut} is a set $A \subseteq \Q$ such that:
     \begin{itemize}
         \item $\forall a \in A \quad b \leq a \implies b \in A$.
         \item $\forall a \in A \quad \exists a' > a$ such that $a' \in A$.
@@ -21,8 +21,8 @@ The first condition says a Dedekind cut is open downward, i.e.\ it continues to 
 The second condition says it is open upward, i.e.\ it has no maximal element in the cut.
 (Note that this does not necessarily mean it goes to $\infty$).
 
-\begin{example}{}{r-dedekind}
-    Let $R := \set{D \subseteq \Q : D \text{ is Dedekind}}$ and define $\phi : \Q \rightarrow R$ by $q \mapsto \set{a : a < q}$.
+\begin{example}[label=r-dedekind]
+    Let $R := \set[D \subseteq \Q]{D \text{ is Dedekind}}$ and define $\phi : \Q \rightarrow R$ by $q \mapsto \set[a \in \Q]{a < q}$.
     Then $R$ is Dedekind.
 \end{example}
 
@@ -35,8 +35,8 @@ Every rational to the left of $q$ is in the cut $D$, and no matter which $a \in 
     \caption{A Dedekind cut at $q$. The real line has infinitely many ``holes'' at the irrationals; the purpose of Dedekind cuts is to fill those holes.}
 \end{figure}
 
-\begin{example}{}{sqrt-2-dedekind}
-    $A_{\sqrt{2}} := \set{x \in \Q : x^2 < 2 \text{ or } x \leq 0}$ is Dedekind.
+\begin{example}[label=sqrt-2-dedekind]
+    $A_{\sqrt{2}} := \set[x \in \Q]{x^2 < 2 \text{ or } x \leq 0}$ is Dedekind.
 \end{example}
 
 Try showing that these example sets satisfy \Cref{def:dedekind-cut}.
@@ -44,14 +44,14 @@ Try showing that these example sets satisfy \Cref{def:dedekind-cut}.
 Since $\Q$ is totally ordered, \Cref{ex:r-dedekind} suggests that we can also order Dedekind cuts.
 Indeed, this shows us that that set $R$ of Dedekind cuts is complete.
 
-\begin{definition}{}{}
+\begin{definition}
     Let $D_1, D_2 \in R$.
     If $D_1 \subseteq D_2$, then we say $D_1 \leq D_2$.
 \end{definition}
 
-\begin{lemma}{}{set-of-dedekind-complete}
+\begin{lemma}[label=set-of-dedekind-complete]
     $R$ is complete.
-    \hr{}
+    \tcblower
     \begin{proof}
         Let $S \subset R$ be a nonempty set of Dedekind cuts and let $D \in R$ be an upper bound for $S$.
         Then for every $s \in S$, by definition $s \leq D$ and $s \subseteq D$.
@@ -71,22 +71,22 @@ Not quite, because this set is too big!
 Note that $\Q$ itself is a Dedekind cut in $R$ that would correspond to $\infty$, which we know is not a number.
 Hence, we refine our definition of $R$ to give a proper definition of the \emph{real numbers}.
 
-\begin{definition}{Real numbers}{}
-    The \textbf{real numbers} $\R$ are the set of proper Dedekind cuts
+\begin{definition}[title=Real numbers]
+    The \emph{real numbers} $\R$ are the set of proper Dedekind cuts
     \[
-        \R := \set{D \subset \Q : D \neq \Q \text{ is Dedekind}}
+        \R := \set[D \subset \Q]{D \neq \Q \text{ is Dedekind}}
     .\]
     If $D \neq \Q$, then take any $q \notin D$.
     No $q' > q$ can be in $D$, so we can equivalently define $\R$ by
     \[
-       \R := \set{D \in R : \exists q \in \Q \text{ such that } D < \phi(q)}
+       \R := \set[D \in R]{\exists q \in \Q \text{ such that } D < \phi(q)}
     ,\]
     where $\phi : \Q \rightarrow \R$ is analagously defined as in \Cref{ex:r-dedekind}.
 \end{definition}
 
 \begin{remark}
     $\R$ is complete.
-    \hr{}
+    \tcblower
     \begin{proof}
         If $D \in \R$, then by definition there exists $q_0$ such that $D < \phi(q_0)$.
         This implies
@@ -100,9 +100,9 @@ Hence, we refine our definition of $R$ to give a proper definition of the \emph{
 \hr{}
 
 We now consider the field nature of $\R$.
-Define the \textbf{positive reals} $\R^{+}$ as the set
+Define the \emph{positive reals} $\R^{+}$ as the set
 \[
-    \R^{+} := \set{D \in \R : (-\infty, 0] \subseteq D}
+    \R^{+} := \set[D \in \R]{(-\infty, 0] \subseteq D}
 ,\]
 and define addition and multiplication in it by
 \begin{align*}
@@ -110,8 +110,7 @@ and define addition and multiplication in it by
     D_1 D_2 &= \bigcup \set{d_1 d_2 : d_1 \in D_1^{+}, d_2 \in D_2^{+}}.
 \end{align*}
 Since negative numbers complicate multiplication, we can assume that $D \in \R^{+}$ is a subset of $\Q^{+}$ and ``starts'' at $0$ rather than $-\infty$.
-More formally, we can view this as $\R^{+} = \set{D \subset \Q^{+} : D \cup (-\infty, 0] \text{ is Dedekind}}$.
-
+More formally, we can view this as $\R^{+} = \set[D \subset \Q^{+}]{D \cup (-\infty, 0] \text{ is Dedekind}}$.
 
 With these operations, $\R^{+}$ satisfies the field axioms with associative, commutative, and distributive properties (verify these for practice!):
 \begin{align*}
@@ -125,9 +124,9 @@ Our final answer to what the real numbers are is that $\R$ is the Grothendieck g
     \R = G(\R^{+}, +)
 .\]
 
-\begin{lemma}{}{}
+\begin{lemma}
     $\R$ is totally ordered.
-    \hr{}
+    \tcblower
     \begin{proof}
         Let $D_1, D_2 \in \R$.
         There are two cases:
@@ -147,7 +146,7 @@ Our final answer to what the real numbers are is that $\R$ is the Grothendieck g
     \begin{exercises}
         \item Let $\phi : \Q^{+} \rightarrow \R^{+}$ (where $\R^{+}$ is a set of Dedekind cuts) be the function defined by
         \[
-            \phi(q) := \set{a \in \Q : a < q}
+            \phi(q) := \set[a \in \Q]{a < q}
         .\]
         \begin{exercises}
             \item Prove that $\phi$ is injective and order-preserving, i.e.\ show that if $q < q'$, then $\phi(q) < \phi(q')$.

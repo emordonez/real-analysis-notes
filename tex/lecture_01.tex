@@ -7,8 +7,9 @@
 
 \begin{document}
 \section{An axiomatic definition of the natural numbers}
-We begin with a set called $\N$.
-We know nothing about it yet, but we will assume these three properties to be axiomatic:
+We begin with a nonempty set called $\N$.
+We know what it should look like, but how can we precisely define it?
+Assuming we know nothing about it except that it exists, we will state three axiomatic properties that it should have:
 \begin{enumerate}[label=\textbf{a\arabic*)}]
     \item $1 \in \N$.\footnote{
         The standard axiomatization of $\N$ starts with $0$, but we start with $1$ to simplify our approach in constructing $\R$.
@@ -30,12 +31,13 @@ Let $\N$ be a set containing $1$ and equipped with a function $S: \N \rightarrow
     \item If $A \subseteq \N$ is a set such that $1 \in A$ and $S(A) \subseteq A$, then $A = \N$.
 \end{enumerate}
 
-The formal link between these sets of axioms is the definition $S(n) := n + 1$, which we call a \emph{successor function}.
-The latter set gives the standard axiomatization of the natural numbers known as the \emph{Peano axioms}.\footnote{
+The formal link between these sets of axioms is the definition $S(n) := n + 1$, which we call a successor function.
+The latter set gives the standard axiomatization of the natural numbers known as the Peano axioms.\footnote{
     Named in honor of Giuseppe Peano, 1858--1932.
 }
-\begin{definition}{Peano axioms}{peano-axioms}
-    $\N$ is a set called the \textbf{natural numbers}, equipped with a function $S: \N \rightarrow \N$.
+
+\begin{definition}[title=Natural numbers, label=naturals]
+    The \emph{natural numbers} $\N$ are a set equipped with a successor function $S: \N \rightarrow \N$ and that satisfies the \emph{Peano axioms:}
     \begin{enumerate}
         \item $1 \in \N$.
         \item $S(\N) = \N \setminus \set{1}$.
@@ -52,7 +54,7 @@ This is further explored in the exercises.
 
     \subsection*{Exercises}
     \begin{exercises}
-        \item Let $\N$ be the natural numbers given by the Peano axioms in \Cref{def:peano-axioms}.
+        \item Let $\N$ be the natural numbers given by the Peano axioms in \Cref{def:naturals}.
         Prove that $S$ is injective if and only if $\N$ is not a finite set.
 
         \item Prove that the fourth Peano axiom implies the principle of mathematical induction:\footnote{
